@@ -10,7 +10,6 @@
 <h1>Listagem</h1>
 
 <table>
-	
 		@foreach ($data as $item)
 		<tr>
 			<td> {{ $item->razao_social }} </td>
@@ -30,12 +29,7 @@
 			<tr>
 		@endforeach
 </table>
-	
-
 	<br>
 	<a href="{{ route('cadastrarCliente') }}"><button>Novo Cliente</button></a>
-</ul>
-
-
 </body>
 </html>

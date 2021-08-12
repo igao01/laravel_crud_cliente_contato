@@ -52,6 +52,7 @@ class ContatoController extends Controller
 
 	//CADASTRAR
 	public function create(Request $request, $idCliente){
+		
 		$array = ['error' => ''];
 
 		 $validator = Validator::make($request->all(), [
@@ -63,7 +64,6 @@ class ContatoController extends Controller
 		$cliente = Cliente::find($idCliente);
 		if($cliente->ativo){
 			if(!$validator->fails()){
-
 				$nome = $request->input('nome');
 				$email = $request->input('email');
 
@@ -93,17 +93,14 @@ class ContatoController extends Controller
 		//VERIFICA SE CLIENTE ESTA ATIVO
 		$cliente = Cliente::find($idCliente);
 		if($cliente->ativo){
-
 			if(!$validator->fails()){
+				$nome = $request->input('nome');
+				$email = $request->input('email');
 
-			$nome = $request->input('nome');
-			$email = $request->input('email');
-
-			$contato->nome = $nome;
-			$contato->email = $email;
-			$contato->id_cliente = $idCliente;
-			$contato->save();
-
+				$contato->nome = $nome;
+				$contato->email = $email;
+				$contato->id_cliente = $idCliente;
+				$contato->save();
 			} else {
 				$array['error'] = "Não foi possível cadastrar, verifique se preencheu todos os campos";
 			}

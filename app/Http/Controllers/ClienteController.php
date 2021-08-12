@@ -50,6 +50,7 @@ class ClienteController extends Controller
 
 	//CADASTRAR
 	public function create(Request $request){
+		
 		$array = ['error' => '', 'data' => []];
 
 		 $validator = Validator::make($request->all(), [
@@ -58,7 +59,6 @@ class ClienteController extends Controller
         	]);
 
 		if(!$validator->fails()){
-
 			$razaoSocial = $request->input('razao_social');
 			$ativo = $request->input('ativo');
 
@@ -76,6 +76,7 @@ class ClienteController extends Controller
 
 	//ATUALIZAR
 	public function update(Request $request, $id){
+		
 		$array = ['error' => '', 'data' => ''];
 
 		$validator = Validator::make($request->all(), [
